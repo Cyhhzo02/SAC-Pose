@@ -64,13 +64,13 @@
             <span class="author-block">
               <target="_blank">Yihan Chen</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://openreview.net/profile?id=~Wenfei_Yang2" target="_blank">Wenfei Yang</a><sup>1</sup>,</span>
+              <target="_blank">Wenfei Yang</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://github.com/RenHuan1999" target="_blank">Huan Ren</a><sup>1</sup>,</span>
+              <target="_blank">Huan Ren</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="http://www.cbsr.ia.ac.cn/users/sfzhang/" target="_blank">Shifeng Zhang</a><sup>3</sup>,</span>
+              <target="_blank">Shifeng Zhang</a><sup>3</sup>,</span>
             <span class="author-block">
-              <a href="http://staff.ustc.edu.cn/~tzzhang/" target="_blank">Tianzhu Zhang</a><sup>1,2</sup></span>
+              <target="_blank">Tianzhu Zhang</a><sup>1,2</sup></span>
             <span class="author-block">
               <target="_blank">Feng Wu</a><sup>1</sup></span>
           </div>
@@ -110,7 +110,7 @@
 
               <!-- ArXiv abstract Link -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2503.18671" target="_blank"
+                <a href="https://arxiv.org/abs/2503.18671.pdf" target="_blank"
                 class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                   <i class="ai ai-arxiv"></i>
@@ -122,7 +122,7 @@
               <span class="link-block">
                 <a href="https://arxiv.org/abs/2503.18671"
                 class="external-link button is-normal is-rounded is-dark"
-                style="background-color: #f0f0f0; color: #aaa; pointer-events: none; cursor: not-allowed;">
+<!--                 style="background-color: #f0f0f0; color: #aaa; pointer-events: none; cursor: not-allowed;"> -->
                 <span class="icon">
                   <i class="ai ai-arxiv"></i>
                 </span>
@@ -134,23 +134,13 @@
               <span class="link-block">
                 <target="_blank"
                 class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">
-                  <i class="fab fa-github"></i>
-                </span>
-                <span>Code</span>
-                </a>
-              </span>
-
-              <!-- <span class="link-block">
-                <a href="https://github.com/RenHuan1999/SpotPose"
-                class="external-link button is-normal is-rounded is-dark"
                 style="background-color: #f0f0f0; color: #aaa; pointer-events: none; cursor: not-allowed;">
                 <span class="icon">
                   <i class="fab fa-github"></i>
                 </span>
                 <span>Code</span>
                 </a>
-              </span> -->
+              </span>
 
             </div>
           </div>
@@ -187,13 +177,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Category-level object pose estimation aims to determine the pose and size of arbitrary objects within given categories.
-            Existing two-stage correspondence-based methods first establish correspondences between camera and object coordinates, and then acquire the object pose using a pose fitting algorithm.
-            In this paper, we conduct a comprehensive analysis of this paradigm and introduce two crucial essentials: 1) shape-sensitive and pose-invariant feature extraction for accurate correspondence prediction, and 2) outlier correspondence removal for robust pose fitting.
-            Based on these insights, we propose a simple yet effective correspondence-based method called SpotPose, which includes two stages.
-            During the correspondence prediction stage, pose-invariant geometric structure of objects is thoroughly exploited to facilitate shape-sensitive holistic interaction among keypoint-wise features.
-            During the pose fitting stage, outlier scores of correspondences are explicitly predicted to facilitate efficient identification and removal of outliers.
-            Experimental results on CAMERA25, REAL275 and HouseCat6D benchmarks demonstrate that the proposed SpotPose outperforms state-of-the-art approaches by a large margin.
+            Relative pose estimation provides a promising way for achieving object-agnostic pose estimation. 
+            Despite the success of existing 3D correspondence-based methods, the reliance on explicit feature matching suffers from small overlaps in visible regions and unreliable feature estimation for invisible regions. 
+            Inspired by humans' ability to assemble two object parts that have small or no overlapping regions by considering object structure, we propose a novel Structure-Aware Correspondence Learning method for Relative Pose Estimation, which consists of two key modules. 
+            First, a structure-aware keypoint extraction module is designed to locate a set of kepoints that can represent the structure of objects with different shapes and appearance, under the guidance of a keypoint based image reconstruction loss. 
+            Second, a structure-aware correspondence estimation module is designed to model the intra-image and inter-image relationships between keypoints to extract structure-aware features for correspondence estimation. 
+            By jointly leveraging these two modules, the proposed method can naturally estimate 3D-3D correspondences for unseen objects without explicit feature matching for precise relative pose estimation. 
+            Experimental results on the CO3D, Objaverse and LineMOD datasets demonstrate that the proposed method significantly outperforms prior methods, i.e., with 5.7°reduction in mean angular error on the CO3D dataset.
           </p>
         </div>
       </div>
@@ -233,11 +223,12 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-<pre><code>@inproceedings{cvpr2025spotpose,
-    title={Rethinking Correspondence-based Category-Level Object Pose Estimation},
-    author={Ren, Huan and Yang, Wenfei and Zhang, Shifeng and Zhang, Tianzhu},
-    booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    year={2025}
+<pre><code>@inproceedings{chen2025structure,
+  title={Structure-Aware Correspondence Learning for Relative Pose Estimation},
+  author={Chen, Yihan and Yang, Wenfei and Ren, Huan and Zhang, Shifeng and Zhang, Tianzhu and Wu, Feng},
+  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+  pages={11611--11621},
+  year={2025}
 }</code></pre>
   </div>
 </section>
