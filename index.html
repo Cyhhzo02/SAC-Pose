@@ -157,11 +157,12 @@
         <source src="static/videos/banner_video.mp4"
         type="video/mp4">
       </video> -->
-      <img src="static/images/SpotPose_motivation.png" alt="motivation" width="1000"/>
+      <img src="static/images/SAC-Pose_motivation.png" alt="motivation" width="1000"/>
       <h2 class="subtitle has-text-centered">
-        Reconsideration of the two-stage correspondence-based paradigm.
-        (a) Essential of shape-sensitive and pose-invariant features during the correspondence prediction stage.
-        (b) Essential of outlier correspondence removal during the pose fitting stage.
+        a) \textbf{Task depiction}. Predict the relative pose $\Delta R$ between the query and reference images. 
+        b) \textbf{2D correspondence-based methods} extract keypoints to conduct 2D-2D matching for pose estimation. 
+        c) \textbf{3D correspondence-based methods} lift 2D features into 3D voxel features and conduct 3D-3D matching for pose estimation. 
+        d) \textbf{Our method} bypasses the feature matching and directly regresses 3D correspondences for pose estimation.
       </h2>
     </div>
   </div>
@@ -197,7 +198,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="container">
         <h2 class="title is-3">Method</h2>
-        <img src="static/images/SpotPose_method.png" alt="method" width="1000"/>
+        <img src="static/images/SAC-Pose_pipeline.png" alt="pipeline" width="1000"/>
       </div>
     </div>
   </div>
@@ -210,8 +211,8 @@
     <div class="columns is-centered has-text-centered">
       <div class="container">
         <h2 class="title is-3">Experiment</h2>
-        <img src="static/images/SpotPose_nocs.png" alt="exp_nocs" width="1000"/>
-        <img src="static/images/SpotPose_visualization.png" alt="exp_visual" width="700"/>
+        <img src="static/images/SAC-Pose_experiments.png" alt="exp" width="1000"/>
+        <img src="static/images/SAC-Pose_visualization.png" alt="visual" width="700"/>
       </div>
     </div>
   </div>
