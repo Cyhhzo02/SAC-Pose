@@ -1,101 +1,272 @@
-<!-- Meta tags -->
-<meta name="description" content="Structure-Aware Correspondence Learning for Robust Relative Pose Estimation.">
-<meta property="og:title" content="Structure-Aware Correspondence Learning for Relative Pose Estimation"/>
-<meta property="og:description" content="A novel method for relative pose estimation using structure-aware keypoints and correspondence estimation modules."/>
-<meta property="og:url" content="URL OF YOUR PAPER WEBSITE"/>
-<meta property="og:image" content="static/image/your_banner_image.png" />
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
 
-<meta name="twitter:title" content="Structure-Aware Correspondence Learning for Relative Pose Estimation">
-<meta name="twitter:description" content="Robust relative pose estimation with structure-aware keypoints and correspondence estimation.">
-<meta name="keywords" content="Pose Estimation, Structure-Aware Learning, Computer Vision, CVPR">
 
-<title>Structure-Aware Correspondence Learning for Relative Pose Estimation</title>
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Paper Title and Authors -->
-<h1 class="title is-1 publication-title">Structure-Aware Correspondence Learning for Relative Pose Estimation</h1>
-<div class="is-size-5 publication-authors">
-  <span class="author-block">
-    <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Yihan Chen</a><sup>*</sup>,</span>
-  <span class="author-block">
-    <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Wenfei Yang</a><sup>*</sup>,</span>
-  <span class="author-block">
-    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Huan Ren</a>,</span>
-  <span class="author-block">
-    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Shifeng Zhang</a>,</span>
-  <span class="author-block">
-    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Tianzhu Zhang</a>,</span>
-  <span class="author-block">
-    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Feng Wu</a>
-  </span>
-</div>
-<div class="is-size-5 publication-authors">
-  <span class="author-block">University of Science and Technology of China, Sangfor Technologies<br>CVPR 2025</span>
-  <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-</div>
 
-<!-- Abstract -->
-<h2 class="title is-3">Abstract</h2>
-<div class="content has-text-justified">
-  <p>
-    Relative pose estimation offers a powerful approach for generalizing object pose estimation across unseen categories. However, existing methods relying on explicit feature matching often struggle with limited overlapping regions and unreliable feature predictions in unseen or partially visible areas. Inspired by human capability to mentally assemble objects by leveraging structural details, we introduce a Structure-Aware Correspondence Learning framework. Our method comprises two key modules: a structure-aware keypoint extraction module that adaptively selects keypoints reflecting the object structure, guided by an image reconstruction loss; and a correspondence estimation module that leverages self-attention and cross-attention mechanisms to extract robust structure-aware features for establishing accurate 3D correspondences. Extensive evaluations on CO3D, Objaverse, and LineMOD datasets show significant improvements, outperforming state-of-the-art methods with remarkable accuracy.
-  </p>
-</div>
+  <title>SpotPose</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
 
-<!-- Video Teaser Description -->
-<h2 class="subtitle has-text-centered">
-  Visualization of our robust pose estimation using structure-aware correspondences, highlighting improved accuracy and generalization.
-</h2>
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
 
-<!-- Image Carousel Descriptions -->
-<div class="item">
-  <img src="static/images/carousel1.jpg" alt="Illustration of structure-aware keypoint extraction"/>
-  <h2 class="subtitle has-text-centered">
-    Structure-aware keypoint extraction effectively captures object structure.
-  </h2>
-</div>
-<div class="item">
-  <img src="static/images/carousel2.jpg" alt="Visualization of correspondence estimation"/>
-  <h2 class="subtitle has-text-centered">
-    Robust correspondence estimation through intra-image and inter-image attention.
-  </h2>
-</div>
-<div class="item">
-  <img src="static/images/carousel3.jpg" alt="Comparative results with state-of-the-art methods"/>
-  <h2 class="subtitle has-text-centered">
-    Significant accuracy improvement compared to existing methods.
-  </h2>
-</div>
-<div class="item">
-  <img src="static/images/carousel4.jpg" alt="Qualitative results on challenging datasets"/>
-  <h2 class="subtitle has-text-centered">
-    Qualitative performance on diverse and challenging scenarios.
-  </h2>
-</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
 
-<!-- Video Presentation Title -->
-<h2 class="title is-3">Presentation Video</h2>
+<body>
 
-<!-- Additional Carousel Title -->
-<h2 class="title is-3">Method Demonstrations</h2>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Structure-Aware Correspondence Learning for Relative Pose Estimation</h1>
 
-<!-- Poster Section Title -->
-<h2 class="title">Conference Poster</h2>
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">CVPR 2025</span>
+          </div>
+          <hr>
 
-<!-- BibTeX Citation Section -->
-<h2 class="title">BibTeX</h2>
-<pre><code>
-@inproceedings{chen2025structure,
-  title={Structure-Aware Correspondence Learning for Relative Pose Estimation},
-  author={Chen, Yihan and Yang, Wenfei and Ren, Huan and Zhang, Shifeng and Zhang, Tianzhu and Wu, Feng},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2025}
-}
-</code></pre>
+          <div class="is-size-5 publication-authors">
+            <!-- Paper authors -->
+            <span class="author-block">
+              <target="_blank">Yihan Chen</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://openreview.net/profile?id=~Wenfei_Yang2" target="_blank">Wenfei Yang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://github.com/RenHuan1999" target="_blank">Huan Ren</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="http://www.cbsr.ia.ac.cn/users/sfzhang/" target="_blank">Shifeng Zhang</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="http://staff.ustc.edu.cn/~tzzhang/" target="_blank">Tianzhu Zhang</a><sup>1,2</sup></span>
+            <span class="author-block">
+              <target="_blank">Feng Wu</a><sup>1</sup></span>
+          </div>
 
-<!-- Footer Acknowledgment -->
-<div class="content">
-  <p>
-    This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>, adapted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-    This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-  </p>
-</div>
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <sup>1</sup><a href="http://ustc.edu.cn/">University of Science and Technology of China</a>,</span>
+            <span class="author-block">
+              <sup>2</sup><a href="http://www.dsel.cc/">National Key Laboratoray of Deep Space Exploration, Deep Space Exploration Laboratory</a>,</span><br>
+            <span class="author-block">
+              <sup>3</sup><a href="https://www.sangfor.com.cn/">Sangfor Technologies</a>
+          </div> -->
+
+          <div class="is-size-5 publication-authors">
+            <!-- Institution Names -->
+            <span class="author-block">
+              <sup>1</sup>University of Science and Technology of China,</span>
+            <span class="author-block">
+              <sup>2</sup>National Key Laboratoray of Deep Space Exploration, Deep Space Exploration Laboratory,</span>
+            <span class="author-block">
+              <sup>3</sup>Jianghuai Advance Technology Center,</span>
+            <span class="author-block">
+              <sup>4</sup>Sangfor Technologies</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+
+              <!-- Arxiv PDF link -->
+              <span class="link-block">
+                <a href="static/pdfs/SpotPose.pdf" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- ArXiv abstract Link -->
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+                </span>
+                <span>arXiv</span>
+                </a>
+              </span> -->
+
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/<ARXIV PAPER ID>"
+                class="external-link button is-normal is-rounded is-dark"
+                style="background-color: #f0f0f0; color: #aaa; pointer-events: none; cursor: not-allowed;">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+                </span>
+                <span>arXiv</span>
+                </a>
+              </span>
+
+              <!-- Github link -->
+              <span class="link-block">
+                <a href="https://github.com/RenHuan1999/SpotPose" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+                </a>
+              </span>
+
+              <!-- <span class="link-block">
+                <a href="https://github.com/RenHuan1999/SpotPose"
+                class="external-link button is-normal is-rounded is-dark"
+                style="background-color: #f0f0f0; color: #aaa; pointer-events: none; cursor: not-allowed;">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+                </a>
+              </span> -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser image-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/banner_video.mp4"
+        type="video/mp4">
+      </video> -->
+      <img src="static/images/SpotPose_motivation.png" alt="motivation" width="1000"/>
+      <h2 class="subtitle has-text-centered">
+        Reconsideration of the two-stage correspondence-based paradigm.
+        (a) Essential of shape-sensitive and pose-invariant features during the correspondence prediction stage.
+        (b) Essential of outlier correspondence removal during the pose fitting stage.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser image -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Category-level object pose estimation aims to determine the pose and size of arbitrary objects within given categories.
+            Existing two-stage correspondence-based methods first establish correspondences between camera and object coordinates, and then acquire the object pose using a pose fitting algorithm.
+            In this paper, we conduct a comprehensive analysis of this paradigm and introduce two crucial essentials: 1) shape-sensitive and pose-invariant feature extraction for accurate correspondence prediction, and 2) outlier correspondence removal for robust pose fitting.
+            Based on these insights, we propose a simple yet effective correspondence-based method called SpotPose, which includes two stages.
+            During the correspondence prediction stage, pose-invariant geometric structure of objects is thoroughly exploited to facilitate shape-sensitive holistic interaction among keypoint-wise features.
+            During the pose fitting stage, outlier scores of correspondences are explicitly predicted to facilitate efficient identification and removal of outliers.
+            Experimental results on CAMERA25, REAL275 and HouseCat6D benchmarks demonstrate that the proposed SpotPose outperforms state-of-the-art approaches by a large margin.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Paper method -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="container">
+        <h2 class="title is-3">Method</h2>
+        <img src="static/images/SpotPose_method.png" alt="method" width="1000"/>
+      </div>
+    </div>
+  </div>
+</section>
+<!--End paper method -->
+
+<!-- Paper experiment -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="container">
+        <h2 class="title is-3">Experiment</h2>
+        <img src="static/images/SpotPose_nocs.png" alt="exp_nocs" width="1000"/>
+        <img src="static/images/SpotPose_visualization.png" alt="exp_visual" width="700"/>
+      </div>
+    </div>
+  </div>
+</section>
+<!--End paper experiment -->
+
+<!--BibTex citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+<pre><code>@inproceedings{cvpr2025spotpose,
+    title={Rethinking Correspondence-based Category-Level Object Pose Estimation},
+    author={Ren, Huan and Yang, Wenfei and Zhang, Shifeng and Zhang, Tianzhu},
+    booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    year={2025}
+}</code></pre>
+  </div>
+</section>
+<!--End BibTex citation -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+</body>
+</html>
